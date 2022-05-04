@@ -83,7 +83,7 @@ img {
   background-image: url("../img/descarga.jpg");
   background-repeat: no-repeat;
   color: #eee;
-  min-height: 100vh;
+  min-height: calc(100vh - (10vh + clamp(3rem,12vw,9rem)));
 }
 
 .hero-image div {
@@ -215,6 +215,7 @@ img {
 
   .hero-image {
     margin-bottom:5vw;
+    min-height: calc(100vh - clamp(75px,7.5vw,100px));
   }
 
   .info {
