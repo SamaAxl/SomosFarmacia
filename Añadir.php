@@ -44,44 +44,38 @@
 
   $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 ?>
-      <div class="table">
-        <table>
-          <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Curp</th>
-            <th>Dirección</th>
-            <th>Télefono</th>
-            <th>Correo</th>
-          </tr>
+      <form METHOD="POST" ACTION="Añadir-proceso.php">
 
-          <?php
-  // Bucle while que recorre cada registro y muestra cada campo en la tabla.
-	while ($columna = mysqli_fetch_array( $resultado ))
-	{
-		echo "<tr>";
-		echo 
-    "<td>" .$columna['cvecte']."</td> 
-		<td>". $columna['nombre'] . "</td> 
-		<td>" . $columna['curp'] . "</td>
-		<td>" . $columna['direccion'] . "</td>
-		<td>" . $columna['telefono'] . "</td>
-		<td>" . $columna['correo'] . "</td";
-		echo "</tr>";
-	}
+        <h3>Id </h3>
+        <label form="cvecte">Id:</label>
+        <input name="cvecte" type="text" value="" size="40" maxlength="40" placeholder="Cvecte ">
 
-  // cerrar conexión de base de datos
-	mysqli_close( $conexion );
+        <h3>Nombre </h3>
+        <label form="nombre">Nombre:</label>
+        <input name="nombre" type="text" value="" size="40" maxlength="40" placeholder="Nombre ">
 
-?>
+        <h3>Curp</h3>
+        <label form="curp">apellidos</label>
+        <input name="curp" type="text" value="" size="40" maxlength="40" placeholder="Curp">
 
-        </table>
+        <h3>Dirección</h3>
+        <label form="direccion">apellidos</label>
+        <input name="direccion" type="text" value="" size="40" maxlength="40" placeholder="Direccion">
+
+        <h3>Télefono</h3>
+        <label form="telefono">apellidos</label>
+        <input name="telefono" type="text" value="" size="40" maxlength="40" placeholder="Telefono">
+
+        <h3>Correo</h3>
+        <label form="correo">apellidos</label>
+        <input name="correo" type="text" value="" size="40" maxlength="40" placeholder="Correo">
+
+        <input TYPE="SUBMIT" value="Insertar">
+      </form>
       </div>
       <div class="links">
         <ul>
-          <li><a href="Añadir.php">Añadir Cliente</a></li>
-          <li><a href="Borrar.php">Borrar Cliente</a></li>
-          <li><a href="Modificar.php">Modificar Cliente</a></li>
+          <li><a href="Clientes.php">Regresar</a></li>
         </ul>
       </div>
     </article>
