@@ -28,62 +28,47 @@
     <article class="container-table">
       <?php
 
-  $usuario = "root";
-  $password = "";
-	$servidor = "localhost";
-	$basededatos = "farmacia";
+      include("conec.php");
+      $link=Conectarse();
+      $b= $_POST["nombre"];
 
-  // creación de la conexión a la base de datos con mysql_connect()
-	$conexion = mysqli_connect( $servidor, $usuario, $password ) or die ("No se ha podido conectar al servidor de Base de datos");
+      $Sql="call SELECCIONAR_CLIENTE('".$b."');";
 
-  // Selección del a base de datos a utilizar
-	$db = mysqli_select_db( $conexion, $basededatos ) or die ( "Upps! Pues va a ser que no se ha podido conectar a la base de datos" );
-	
-  // establecer y realizar consulta. guardamos en variable.
-	$consulta = "SELECT * FROM clientes";
-
-  $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+      $result = mysqli_query($link,$Sql);
 ?>
+
       <div class="table">
         <table>
           <tr>
             <th>Id</th>
             <th>Nombre</th>
             <th>Curp</th>
-            <th>Dirección</th>
-            <th>Télefono</th>
-            <th>Correo</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>correo</th>
           </tr>
 
-          <?php
-  // Bucle while que recorre cada registro y muestra cada campo en la tabla.
-	while ($columna = mysqli_fetch_array( $resultado ))
-	{
-		echo "<tr>";
-		echo 
-    "<td>" .$columna['cvecte']."</td> 
-		<td>". $columna['nombre'] . "</td> 
-		<td>" . $columna['curp'] . "</td>
-		<td>" . $columna['direccion'] . "</td>
-		<td>" . $columna['telefono'] . "</td>
-		<td>" . $columna['correo'] . "</td";
-		echo "</tr>";
-	}
+          <form name="form1" method="post" action="Modificar-Proceso.php">
 
-  // cerrar conexión de base de datos
-	mysqli_close( $conexion );
-
+            <?php
+        while ($column = mysqli_fetch_array($result)){
+          echo "<tr><td><INPUT TYPE='text' NAME='cvecte'  value=". $column["cvecte"] ." readonly> </td>"; 
+          echo "<td><INPUT TYPE='text' NAME='nombre'  value=". $column["nombre"] .">  </td>";
+          echo "<td><INPUT TYPE='text' NAME='curp' value=". $column["curp"] ."></td>";
+          echo "<td><INPUT TYPE='text' NAME='direccion'  value=". $column["direccion"] ."></td>";      
+          echo "<td><INPUT TYPE='text' NAME='telefono'  value=". $column["telefono"] ."></td>";
+          echo "<td><INPUT TYPE='text' NAME='correo'  value=". $column["correo"] ." ></td></tr>";   
+        }
+        mysqli_free_result($result);
 ?>
+
 
         </table>
       </div>
-      <div class="links">
-        <ul>
-          <li><a href="Añadir.php">Añadir Cliente</a></li>
-          <li><a href="Borrar.php">Borrar Cliente</a></li>
-          <li><a href="Modificar.php">Modificar Cliente</a></li>
-        </ul>
-      </div>
+
+
+      <input type="submit" name="accion" value="Guardar">
+      </form>
     </article>
   </main>
   <footer class="footer">

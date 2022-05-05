@@ -40,7 +40,7 @@
 	$db = mysqli_select_db( $conexion, $basededatos ) or die ( "Upps! Pues va a ser que no se ha podido conectar a la base de datos" );
 	
   // establecer y realizar consulta. guardamos en variable.
-	$consulta = "SELECT * FROM clientes";
+	$consulta = "SELECT * FROM farmacia.proveedores";
 
   $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 ?>
@@ -48,41 +48,34 @@
         <table>
           <tr>
             <th>Id</th>
-            <th>Nombre</th>
-            <th>Curp</th>
+            <th>RFC</th>
+            <th>Razón Social</th>
             <th>Dirección</th>
             <th>Télefono</th>
             <th>Correo</th>
           </tr>
 
           <?php
-  // Bucle while que recorre cada registro y muestra cada campo en la tabla.
+  //Bucle while que recorre cada registro y muestra cada campo en la tabla.
 	while ($columna = mysqli_fetch_array( $resultado ))
 	{
 		echo "<tr>";
 		echo 
-    "<td>" .$columna['cvecte']."</td> 
-		<td>". $columna['nombre'] . "</td> 
-		<td>" . $columna['curp'] . "</td>
+    "<td>" .$columna['cveprov']."</td> 
+		<td>". $columna['rfc'] . "</td> 
+		<td>" . $columna['razonsocial'] . "</td>
 		<td>" . $columna['direccion'] . "</td>
 		<td>" . $columna['telefono'] . "</td>
 		<td>" . $columna['correo'] . "</td";
 		echo "</tr>";
 	}
 
-  // cerrar conexión de base de datos
+  //Cerrar conexión de base de datos
 	mysqli_close( $conexion );
 
 ?>
 
         </table>
-      </div>
-      <div class="links">
-        <ul>
-          <li><a href="">Sección 1</a></li>
-          <li><a href="">Sección 2</a></li>
-          <li><a href="">Sección 3</a></li>
-        </ul>
       </div>
     </article>
   </main>

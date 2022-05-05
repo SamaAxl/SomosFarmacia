@@ -30,7 +30,7 @@
     include("conec.php");
     $conexion=Conectarse();
    
-    $consulta = "SELECT * FROM clientes";
+    $consulta = "SELECT * FROM farmacia.clientes";
     $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 	
 ?>

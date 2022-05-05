@@ -13,7 +13,6 @@
   <header class="header">
     <nav class="navegacion">
       <a href="index.html"><img class="logo" src="img/logo somos.png" alt="Somos Logo"></a>
-
       <ul>
         <li class="nav-item"><a href="index.html">Inicio</a></li>
         <li class="nav-item"><a href="Clientes.php">Clientes</a></li>
@@ -26,58 +25,14 @@
   </header>
   <main class="main">
     <article class="container-table">
-      <?php
-
-  $usuario = "root";
-  $password = "";
-	$servidor = "localhost";
-	$basededatos = "farmacia";
-
-  // creación de la conexión a la base de datos con mysql_connect()
-	$conexion = mysqli_connect( $servidor, $usuario, $password ) or die ("No se ha podido conectar al servidor de Base de datos");
-
-  // Selección del a base de datos a utilizar
-	$db = mysqli_select_db( $conexion, $basededatos ) or die ( "Upps! Pues va a ser que no se ha podido conectar a la base de datos" );
-	
-  // establecer y realizar consulta. guardamos en variable.
-	$consulta = "SELECT * FROM medicamentos";
-
-  $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-?>
-      <div class="table">
-        <table>
-          <tr>
-            <th>Id</th>
-            <th>Descripción</th>
-            <th>Existencia</th>
-            <th>Costo</th>
-          </tr>
-
-          <?php
-  //Bucle while que recorre cada registro y muestra cada campo en la tabla.
-	while ($columna = mysqli_fetch_array( $resultado ))
-	{
-		echo "<tr>";
-		echo 
-    "<td>" .$columna['cvemed']."</td> 
-		<td>". $columna['descripcion'] . "</td> 
-		<td>" . $columna['existencia'] . "</td>
-		<td>" . $columna['costo'] . "</td";
-		echo "</tr>";
-	}
-
-  //Cerrar conexión de base de datos
-	mysqli_close( $conexion );
-
-?>
-
-        </table>
-      </div>
+      <form action="Modificar.php" method="post">
+        <label for="nombre">Nombre del Cliente</label>
+        <input id="nombre" type="text" name="nombre">
+        <input type="submit" name="accion" value="Buscar">
+      </form>
       <div class="links">
         <ul>
-          <li><a href="">Añadir</a></li>
-          <li><a href="">Borrar</a></li>
-          <li><a href="">Modificar</a></li>
+          <li><a href="Clientes.php">Regresar</a></li>
         </ul>
       </div>
     </article>

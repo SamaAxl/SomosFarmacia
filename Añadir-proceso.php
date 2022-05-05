@@ -15,15 +15,12 @@ include("conec.php");
     $resultado = mysqli_query( $conexion, $consulta );
    
    if ($resultado==1) {
-	   echo "Registro insertado exitosamente...<br>";
-	   	   }
-		else {
-			
-			echo "Función fallida. Revisa la sintaxis y/o conexion al servidor.<br>";
-			}   
+        echo "Registro insertado exitosamente...<br>";
+        header("Location: Clientes.php");
+    }
+	else {	
+	    echo "Función fallida. Revisa la sintaxis y/o conexion al servidor.<br>";
+    }   
   
-echo "<div align='center'>";
-echo "<a href='Añadir.php'>Regresar</a><br>";
-echo "</div>";
 
 ?>

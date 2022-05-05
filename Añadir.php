@@ -40,35 +40,29 @@
 	$db = mysqli_select_db( $conexion, $basededatos ) or die ( "Upps! Pues va a ser que no se ha podido conectar a la base de datos" );
 	
   // establecer y realizar consulta. guardamos en variable.
-	$consulta = "SELECT * FROM clientes";
+	$consulta = "SELECT * FROM farmacia.clientes";
 
   $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 ?>
       <form METHOD="POST" ACTION="Añadir-proceso.php">
 
-        <h3>Id </h3>
-        <label form="cvecte">Id:</label>
-        <input name="cvecte" type="text" value="" size="40" maxlength="40" placeholder="Cvecte ">
+        <label form="cvecte">Id</label>
+        <input name="cvecte" type="text" value="" size="40" maxlength="40" placeholder="Id " required>
 
-        <h3>Nombre </h3>
-        <label form="nombre">Nombre:</label>
-        <input name="nombre" type="text" value="" size="40" maxlength="40" placeholder="Nombre ">
+        <label form="nombre">Nombre</label>
+        <input name="nombre" type="text" value="" size="40" maxlength="40" placeholder="Nombre " required>
 
-        <h3>Curp</h3>
-        <label form="curp">apellidos</label>
-        <input name="curp" type="text" value="" size="40" maxlength="40" placeholder="Curp">
+        <label form="curp">Curp</label>
+        <input name="curp" type="text" value="" size="40" maxlength="40" placeholder="Curp" required>
 
-        <h3>Dirección</h3>
-        <label form="direccion">apellidos</label>
-        <input name="direccion" type="text" value="" size="40" maxlength="40" placeholder="Direccion">
+        <label form="direccion">Dirección</label>
+        <input name="direccion" type="text" value="" size="40" maxlength="40" placeholder="Direccion" required>
 
-        <h3>Télefono</h3>
-        <label form="telefono">apellidos</label>
-        <input name="telefono" type="text" value="" size="40" maxlength="40" placeholder="Telefono">
+        <label form="telefono">Télefono</label>
+        <input name="telefono" type="text" value="" size="40" maxlength="40" placeholder="Telefono" required>
 
-        <h3>Correo</h3>
-        <label form="correo">apellidos</label>
-        <input name="correo" type="text" value="" size="40" maxlength="40" placeholder="Correo">
+        <label form="correo">Correo</label>
+        <input name="correo" type="text" value="" size="40" maxlength="40" placeholder="Correo" required>
 
         <input TYPE="SUBMIT" value="Insertar">
       </form>
