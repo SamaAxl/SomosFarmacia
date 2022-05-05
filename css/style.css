@@ -49,7 +49,7 @@ img {
   font-size: clamp(.5rem,2vw,1.5rem);
 
   position: sticky;
-  top: -10vw;
+  top: -12vw;
 
   padding: 1rem;
   background-color: var(--primary-bg-color);
