@@ -2,6 +2,7 @@ html {
   box-sizing: border-box;
   font-family: sans-serif;
   font-size: 16px;
+  scroll-behavior:smooth;
 }
 
 :root {
@@ -80,7 +81,7 @@ img {
 }
 
 .hero-image {
-  background-image: url("../img/descarga.jpg");
+  background-image: url("../img/Fondo.jpg");
   background-repeat: no-repeat;
   color: #eee;
   min-height: calc(100vh - (10vh + clamp(3rem,12vw,9rem)));
@@ -102,6 +103,10 @@ img {
 .info {
   color: white;
   font-weight: 600;
+}
+
+.info ul {
+  text-align: center;
 }
 
 .info p {
@@ -211,6 +216,30 @@ img {
   color:var(--primary-color);
 }
 
+.datos {
+  flex-flow:row wrap;
+  display:flex;
+  justify-content: center;
+}
+
+.mision,
+.vision,
+.objetivos {
+  display:flex;
+  flex-flow:column;
+  width: 75vw;
+  height: 35vw;
+  font-size: clamp(.5rem,2vw,2rem);
+  background-color: white;
+  color:black;
+  border:medium solid black;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  margin:2rem 1rem 0;
+  padding:1rem;
+}
+
 
 @media screen and (min-width: 50em) {
   .header {
@@ -263,7 +292,44 @@ img {
     white-space: pre-line;
   }
 
+  .info-item ul {
+    font-size: clamp(.5rem,2vw,2rem);
+  }
+
   .order {
     order: 1;
   }
+
+  .datos {
+  flex-flow:row nowrap;
+  display:flex;
+  justify-content: space-evenly;
+  margin-bottom:5vw;
+}
+
+.mision,
+.vision,
+.objetivos {
+  display:flex;
+  flex-flow:column;
+  width: 25vw;
+  height: 25vw;
+  font-size: clamp(.5rem,1vw,2rem);
+  background-color: white;
+  color:black;
+  border:medium solid black;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  margin:0 1rem 0 1rem;
+  padding:1rem;
+}
+
+.mision h1,
+.vision h1,
+.objetivos h1 {
+  font-size: clamp(1rem,2vw,4rem);
+}
+
+
 }
