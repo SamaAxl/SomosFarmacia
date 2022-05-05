@@ -75,9 +75,9 @@
       </div>
       <div class="links">
         <ul>
-          <li><a href="">Añadir</a></li>
-          <li><a href="">Borrar</a></li>
-          <li><a href="">Modificar</a></li>
+          <li><a href="Añadir-Medicamento.php">Añadir</a></li>
+          <li><a href="Borrar-Medicamento.php">Borrar</a></li>
+          <li><a href="Buscar-Medicamento.php">Modificar</a></li>
         </ul>
       </div>
     </article>
