@@ -52,7 +52,7 @@ img {
   position: sticky;
   top: -12vw;
 
-  padding: 1rem;
+  padding: .5rem;
   background-color: var(--primary-bg-color);
 }
 
@@ -84,7 +84,7 @@ img {
   background-image: url("../img/Fondo.jpg");
   background-repeat: no-repeat;
   color: #eee;
-  min-height: calc(100vh - (10vh + clamp(3rem,12vw,9rem)));
+  min-height: calc(100vh - (10vh + 5vw));
 }
 
 .hero-image div {
@@ -228,8 +228,8 @@ img {
   display:flex;
   flex-flow:column;
   width: 75vw;
-  height: 35vw;
-  font-size: clamp(.5rem,2vw,2rem);
+  height: 45vw;
+  font-size: clamp(.5rem,3vw,2rem);
   background-color: white;
   color:black;
   border:medium solid black;
@@ -252,6 +252,7 @@ img {
   .header {
     position: sticky;
     top: 0;
+    padding: 1rem;
   }
   
   .navegacion {
@@ -279,7 +280,7 @@ img {
 
   .hero-image {
     margin-bottom:5vw;
-    min-height: calc(100vh - clamp(75px,7.5vw,100px));
+    min-height: calc(100vh - clamp(75px,5vw,100px));
   }
 
   .info {
